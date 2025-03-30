@@ -1,26 +1,44 @@
-
+import packages.Dog;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args)  {
+        //throws ClassNotFoundException
         // System.out.println("Hello there!");
-        // Human kajan=new Human("kajan", 1000.00);
-        // System.out.println(kajan);
-        // kajan.buyDog("shiny");
+        Human kajan=new Human("kajan", 1000.00,"Zangetsu");
+       // System.out.println(kajan);
+       kajan.buyDog("shiny");
         
         // System.out.println(kajan.myDog);
-        // System.out.println(kajan.bankBalance);
+        Dog.aging();
+        // System.out.println(kajan.myDog.foodCapacity);
 
+        // kajan.checkBalance();
+
+        // kajan.myDog.bark();
+        //  kajan.myDog.sound("woof woof woof..");
+        //   System.out.println(kajan.myDog.foodCapacity);
+
+
+        kajan.zanpakuto.askName(kajan);
+
+        System.out.println(kajan.isShikaiUnlocked);
+
+        kajan.increasePower(10.00,1);
+
+        System.out.println(kajan.spiritualPowerLevel);
+
+       //Class.forName("packages.Dog");
 
         //Widening Casting
         // int num4=2;
         // double num3=num4;
 
         //Narrowing Casting
-        double num4=2.0;
-        int num3=(int) num4;
+        // double num4=2.0;
+        // int num3=(int) num4;
 
-        System.out.println(num3);
+        // System.out.println(num3);
 
         //  int[] exampleArray={1,2,3};
         //   System.out.println(Arrays.toString(exampleArray));
@@ -46,10 +64,10 @@ public class Main {
         // }
         // }
 
-        StringBuffer des=new StringBuffer("example");
-        String desAsString=des.toString();
-        System.out.println(desAsString);
-        System.out.println(des.capacity());
+        // StringBuffer des=new StringBuffer("example");
+        // String desAsString=des.toString();
+        // System.out.println(desAsString);
+        // System.out.println(des.capacity());
 
         
     }
