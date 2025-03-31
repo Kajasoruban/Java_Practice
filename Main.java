@@ -6,6 +6,7 @@ public class Main {
         //throws ClassNotFoundException
         // System.out.println("Hello there!");
         Human kajan=new Human("kajan", 1000.00,"Zangetsu");
+        Human ichigo=new Human("ichigo", 1000.00,"Zanku");
        // System.out.println(kajan);
        kajan.buyDog("shiny");
         
@@ -27,6 +28,10 @@ public class Main {
         kajan.increasePower(10.00,1);
 
         System.out.println(kajan.spiritualPowerLevel);
+
+
+        // System.out.println(kajan+" "+ichigo);
+         // System.out.println(kajan.equals(ichigo));
 
        //Class.forName("packages.Dog");
 

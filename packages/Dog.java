@@ -9,6 +9,7 @@ class Animal{
       foodCapacity -= 100;
     }
 
+    //can't be override in subclass
     final public void sound(){
       System.out.println(tone);
        foodCapacity -= 100;

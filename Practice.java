@@ -1,6 +1,8 @@
 import packages.Dog;
 
-class Zanpakuto{
+//cannot be inherited
+final class Zanpakuto{
+    //constant value
     final private String name;
     
 
@@ -58,11 +60,13 @@ class Human extends SoulReaper{
        // System.out.println(bankBalance);
     }
 
-    // @Override
-    // protected void increasePower(double level){
-    //       spiritualPowerLevel=spiritualPowerLevel+level;
-    // }
+    // run time polymorphism (method overwriting) use dynamic binding
+    @Override
+    protected void increasePower(double level){
+          spiritualPowerLevel=spiritualPowerLevel+level;
+    }
 
+     // compile time polymorphism (method overloading) use static binding
      protected void increasePower(double level, int bonus){
           spiritualPowerLevel=spiritualPowerLevel+level+bonus;
     }
@@ -87,7 +91,8 @@ class Human extends SoulReaper{
 
     @Override
    public String toString(){
-    return "name: "+ name +", bankBalance: "+bankBalance;
+    return "equal";
+    //return "name: "+ name +", bankBalance: "+bankBalance;
    }
     
 }
