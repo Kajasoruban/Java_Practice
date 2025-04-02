@@ -93,15 +93,41 @@ public class Main {
         kajan.increasePower(10.00,1);
 
        // System.out.println(kajan.strengthLevel);
-       console.log(kajan.strengthLevel);
+      // console.log(kajan.strengthLevel);
 
          kajan.increaseStrength(kajan);
 
          // System.out.println(kajan.strengthLevel);
-         console.log(kajan.strengthLevel);
+        // console.log(kajan.strengthLevel);
 
+        Hollow hollow1=new Hollow(){
 
+            @Override
+            public void increaseSpeed(SoulReaper ob) {
+                ob.speedLevel+=5;
+            }
+
+            
+            @Override
+            public void increaseStrength(SoulReaper ob) {
+                ob.strengthLevel+=5;
+            }
+
+        };
+
+        // when hollow atacking
+        console.log(kajan.healthLevel);
+        hollow1.attack(kajan);
+        console.log(kajan.healthLevel);
+
+        // // when soulreaper attack
+        // console.log(hollow1.healthLevel);
+        // kajan.attack(hollow1);
+        // console.log(hollow1.healthLevel);
           
+
+
+         // System.out.println(SoulReaperType.age);
 
 
         // System.out.println(kajan+" "+ichigo);

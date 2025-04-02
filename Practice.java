@@ -1,8 +1,17 @@
 import packages.Dog;
 
+enum Spells{
+    Release,Bangai
+}
 
+class Soul{
+    double healthLevel=100.00;
+}
 
-
+interface SoulReaperType{
+    int age=1000;
+    void attack(Hollow soul);
+}
 
 //cannot be inherited
 final class Zanpakuto{
@@ -21,10 +30,17 @@ final class Zanpakuto{
 
 }
 
-abstract class Hollow{ //can't directly use to create object first it's abstract methods should be implemented in a class and then we can use it
-
+abstract class Hollow extends Soul{ //can't directly use to create object first it's abstract methods should be implemented in a class and then we can use it
+    int damageinflict=5;
    abstract public void increaseSpeed(SoulReaper ob);
    abstract public void increaseStrength(SoulReaper ob);
+
+   public void attack(Hollow soul){//kind of upcasting because we passing soulreaper object but set type as Hollow
+    SoulReaper soulreaper=(SoulReaper) soul;//here we are downcasting so we can use other abilities of SoulReaper not just hollow
+    System.out.println("-"+this.damageinflict);
+    soulreaper.healthLevel-=this.damageinflict;
+   }
+
 
 }
 
@@ -43,12 +59,12 @@ class Vizard extends Hollow{
 
 }
 
-class SoulReaper extends Vizard{
+class SoulReaper extends Vizard implements SoulReaperType{
     Zanpakuto zanpakuto;
     boolean isShikaiUnlocked=false;
     boolean isBangaiUnlocked=false;
     double spiritualPowerLevel=0;
-    double healthLevel=100.00;
+    int damageinflict=10;
     double speedLevel=10;
     double strengthLevel=5;
 
@@ -68,6 +84,12 @@ class SoulReaper extends Vizard{
      protected void increasePower(double level){
           spiritualPowerLevel=level;
     }
+
+    @Override
+    public void attack(Hollow soul){//
+    System.out.println("-"+this.damageinflict);
+    soul.healthLevel-=this.damageinflict;
+   }
 
 }
 
