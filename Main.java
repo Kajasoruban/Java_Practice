@@ -1,13 +1,76 @@
 import packages.Dog;
 
+
+
+
+
 public class Main {
+
+   //inner class can use static
+   static class Sub{//implementation of javascript console.log()
+        
+        public void log(byte data){
+            System.out.println(data); 
+        }
+        public void log(short data){
+            System.out.println(data); 
+        }
+        public void log(int data){
+            System.out.println(data); 
+        }
+        public void log(long data){
+            System.out.println(data); 
+        }
+        public void log(float data){
+            System.out.println(data); 
+        }
+        public void log(double data){
+            System.out.println(data); 
+        }
+        public void log(boolean  data){
+            System.out.println(data); 
+        }
+        public void log(char  data){
+            System.out.println(data); 
+        }
+        public void log(String  data){
+            System.out.println(data); 
+        }
+        public void log(Object  data){
+            try {
+            
+            data.getClass().getMethod("toString");
+            System.out.println(data.toString()); 
+                
+            } catch (Exception e) {
+                //System.out.println("error: "+e.getMessage()+"not found");
+                System.out.println("error: can't be logged");
+
+            }
+            
+        }
+
+        
+    }
 
     public static void main(String[] args)  {
         //throws ClassNotFoundException
         // System.out.println("Hello there!");
+
+       // Main main = new Main();//if Sub is not static class
+       // Main.Sub console= main.new Sub();
+
+       Main.Sub console = new Main.Sub();// here sub is static inner class
+
+          //console.log();
+
+
         Human kajan=new Human("kajan", 1000.00,"Zangetsu");
         Human ichigo=new Human("ichigo", 1000.00,"Zanku");
        // System.out.println(kajan);
+
+       console.log(kajan);
+
        kajan.buyDog("shiny");
         
         // System.out.println(kajan.myDog);
@@ -21,13 +84,24 @@ public class Main {
         //   System.out.println(kajan.myDog.foodCapacity);
 
 
-        kajan.zanpakuto.askName(kajan);
+      //  kajan.zanpakuto.askName(kajan);
 
-        System.out.println(kajan.isShikaiUnlocked);
+       // System.out.println(kajan.isShikaiUnlocked);
+
+        //console.log(kajan.isShikaiUnlocked);
 
         kajan.increasePower(10.00,1);
 
-        System.out.println(kajan.spiritualPowerLevel);
+       // System.out.println(kajan.strengthLevel);
+       console.log(kajan.strengthLevel);
+
+         kajan.increaseStrength(kajan);
+
+         // System.out.println(kajan.strengthLevel);
+         console.log(kajan.strengthLevel);
+
+
+          
 
 
         // System.out.println(kajan+" "+ichigo);

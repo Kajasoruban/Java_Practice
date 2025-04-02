@@ -1,5 +1,9 @@
 import packages.Dog;
 
+
+
+
+
 //cannot be inherited
 final class Zanpakuto{
     //constant value
@@ -17,11 +21,36 @@ final class Zanpakuto{
 
 }
 
-class SoulReaper{
+abstract class Hollow{ //can't directly use to create object first it's abstract methods should be implemented in a class and then we can use it
+
+   abstract public void increaseSpeed(SoulReaper ob);
+   abstract public void increaseStrength(SoulReaper ob);
+
+}
+
+class Vizard extends Hollow{
+
+    @Override
+    public void increaseSpeed(SoulReaper ob) {
+        ob.speedLevel+=5;
+    }
+
+    
+    @Override
+    public void increaseStrength(SoulReaper ob) {
+          ob.strengthLevel+=5;
+    }
+
+}
+
+class SoulReaper extends Vizard{
     Zanpakuto zanpakuto;
     boolean isShikaiUnlocked=false;
     boolean isBangaiUnlocked=false;
     double spiritualPowerLevel=0;
+    double healthLevel=100.00;
+    double speedLevel=10;
+    double strengthLevel=5;
 
     public SoulReaper(String name){
         zanpakuto=new Zanpakuto(name);
@@ -91,8 +120,8 @@ class Human extends SoulReaper{
 
     @Override
    public String toString(){
-    return "equal";
-    //return "name: "+ name +", bankBalance: "+bankBalance;
+    //return "equal";
+    return "{name: "+ name +", bankBalance: "+bankBalance+"}";
    }
     
 }

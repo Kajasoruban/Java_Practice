@@ -5,13 +5,13 @@ class Animal{
     protected String tone="";
 
     public Animal(){
-      System.out.println("animal class used..");
+     // System.out.println("animal class used..");
       foodCapacity -= 100;
     }
 
     //can't be override in subclass
     final public void sound(){
-      System.out.println(tone);
+    //  System.out.println(tone);
        foodCapacity -= 100;
        if(foodCapacity<=100){
         System.out.println("hungry");
@@ -29,12 +29,12 @@ public class Dog extends Animal{
       //without param
       super();
       tone="woof woof woof..";
-      System.out.println("dog class used without param..");
+    //  System.out.println("dog class used without param..");
     }
 
     public Dog(String dogName){
       this();
-       System.out.println("dog class used..");
+     //  System.out.println("dog class used..");
       name=dogName;
       //System.out.println(name);
     }
