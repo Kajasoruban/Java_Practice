@@ -1,5 +1,26 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import packages.Dog;
 
+
+enum Stages{
+    Easy(5),
+    Intermediate(10),
+    Hard(20),
+    Impossible(50);
+
+    int damage;
+
+    private Stages(int damage){
+        this.damage=damage;
+    }//wen can also have methods
+}
+
+@FunctionalInterface
+interface Increase{
+    int add(int n1,int n2);
+}
 
 
 
@@ -42,7 +63,7 @@ public class Main {
             data.getClass().getMethod("toString");
             System.out.println(data.toString()); 
                 
-            } catch (Exception e) {
+            } catch (NoSuchMethodException | SecurityException e) {
                 //System.out.println("error: "+e.getMessage()+"not found");
                 System.out.println("error: can't be logged");
 
@@ -53,7 +74,7 @@ public class Main {
         
     }
 
-    public static void main(String[] args)  {
+    public static void main(String[] args) throws IOException  {
         //throws ClassNotFoundException
         // System.out.println("Hello there!");
 
@@ -69,7 +90,7 @@ public class Main {
         Human ichigo=new Human("ichigo", 1000.00,"Zanku");
        // System.out.println(kajan);
 
-       console.log(kajan);
+     //  console.log(kajan);
 
        kajan.buyDog("shiny");
         
@@ -116,15 +137,19 @@ public class Main {
         };
 
         // when hollow atacking
-        console.log(kajan.healthLevel);
-        hollow1.attack(kajan);
-        console.log(kajan.healthLevel);
+        // console.log(kajan.healthLevel);
+        // hollow1.attack(kajan);
+        // console.log(kajan.healthLevel);
 
         // // when soulreaper attack
         // console.log(hollow1.healthLevel);
         // kajan.attack(hollow1);
         // console.log(hollow1.healthLevel);
           
+          Increase math = (n1,n2) -> n1+n2;
+
+         
+        //   System.out.println(math.add(5, 10));
 
 
          // System.out.println(SoulReaperType.age);
@@ -174,6 +199,65 @@ public class Main {
         // System.out.println(desAsString);
         // System.out.println(des.capacity());
 
+
+        // Stages currentStage= Stages.Impossible;
+
+        // System.out.println("currentStage : "+currentStage+"index : "+currentStage.ordinal());
+
+       // System.out.println(Stages.values());
+        
+        // for(Stages stage: Stages.values()){
+        //     System.out.println(stage.damage);
+        // }
+
+
+
+        System.out.println("Enter a value : ");
+        String originalValue="";
+        BufferedReader bF=null;
+        try{// we can also use try with resources and with that i can automaticaly close resources without explicitly metioning
+
+        // int value = System.in.read();//return asci value
+        // System.out.println(value);
+         
+
+        InputStreamReader in = new InputStreamReader(System.in);
+         bF =new BufferedReader(in);
+
+        originalValue=bF.readLine();
+        int value = Integer.parseInt(originalValue);
+
+        //  Scanner sc = new Scanner(System.in);
+
+        // String value = sc.nextLine();
+        System.out.println(value);
+
+       
+        
+
+        }catch(NumberFormatException e){// there are multiple execptions like checked and unchecked
+           // System.out.println("error :"+e);
+           System.out.println(originalValue);
+
+        }
+        // catch(IOException  e){
+        //      System.out.println("error "+e);
+        // }
+        catch(IOException e){
+            System.out.println(e);
+
+        }finally{
+            if(bF!=null){
+            bF.close();
+            }
+        }
+
+        
+
+      
+
+        
+        
         
     }
 }
