@@ -6,11 +6,17 @@ enum Spells{
 
 class Soul{
     double healthLevel=100.00;
+    private boolean seal = true;
+
+    public void unlock(){
+        seal=false;
+    }
 }
 
 interface SoulReaperType{
     int age=1000;
     void attack(Hollow soul);
+
 }
 
 //cannot be inherited
@@ -98,6 +104,7 @@ class Human extends SoulReaper{
     String name;
     private double bankBalance;
     Dog myDog;
+    static String some="hello";
     
 
     // static {
